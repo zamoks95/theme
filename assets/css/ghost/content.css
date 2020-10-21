@@ -7,15 +7,15 @@
     display: grid;
     grid-template-columns:
         [full-start]
-        minmax(4vw, auto)
+        minmax(0, auto)
             [wide-start]
             minmax(auto, 240px)
                 [main-start]
-                    min(720px, calc(100% - 8vw))
+                    min(900px, calc(100% - 4vw))
                 [main-end]
             minmax(auto, 240px)
             [wide-end]
-        minmax(4vw, auto)
+        minmax(0vw, auto)
         [full-end]
     ;
 }
@@ -62,8 +62,8 @@
 .gh-canvas > ul,
 .gh-canvas > dl,
 .gh-canvas > p {
-    font-family: var(--font-serif);
-    font-weight: 400;
+    font-family: var(--font-sans-serif);
+    font-weight: 300;
     font-size: 2rem;
     line-height: 1.6em;
 }
@@ -85,6 +85,7 @@
 .gh-content blockquote {
     position: relative;
     font-style: italic;
+    margin-left: 1.5em;
 }
 
 .gh-content blockquote::before {

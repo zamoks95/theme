@@ -3,13 +3,15 @@
 
 .gh-foot {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8vmin 4vmin;
 }
 
 .gh-foot .gh-container {
-    width: auto;
+    width: 100%;
+    max-width: 100%;
+    background-color:#4478e3;
 }
 
 .gh-foot a {
@@ -55,3 +57,92 @@
         font-size: 1.6rem;
     }
 }
+
+
+
+footer .waves{
+    padding:0px;
+    color: #fff;
+    text-align:center;
+    width: 100%;
+    margin-bottom: -10px;
+  }
+  .waves svg {
+    width:100%;
+  }
+  .waves .arrow {
+    stroke-width: .3px;
+    stroke:yellow;
+  }
+  .waves .topball {
+    animation: ball 1.5s ease-in-out;
+    animation-iteration-count:infinite;
+    animation-direction: alternate;
+    animation-delay: 0.3s;
+    cursor:pointer;
+  }
+  
+  .waves .wave {
+    animation: wave 3s linear;
+    animation-iteration-count:infinite;
+    fill: #4478e3;
+  }
+  .waves .drop {
+    fill: transparent;
+    animation: drop 5s ease infinite normal;
+    stroke: #4478e3;
+    stroke-width:0.5;
+    opacity:.6; 
+    transform: translateY(80%);
+  }
+  .waves .drop1 {
+    transform-origin: 20px 3px;
+  }
+  .waves .drop2 {
+    animation-delay: 3s;
+    animation-duration:3s;
+    transform-origin: 25px 3px;
+  }
+  .waves .drop3 {
+    animation-delay: -2s;
+    animation-duration:3.4s;
+    transform-origin: 16px 3px;
+  }
+  .waves .gooeff {
+        filter: url(#goo);
+  }
+  #wave2 {
+    animation-duration:5s;
+    animation-direction: reverse;
+    opacity: .6
+  }
+  #wave3 {
+    animation-duration: 7s;
+    opacity:.3;
+  }
+  @keyframes drop {
+    0% {
+      transform: translateY(80%); 
+      opacity:.6; 
+    }
+    80% {
+      transform: translateY(80%); 
+      opacity:.6; 
+    }
+    90% { 
+      transform: translateY(10%) ; 
+      opacity:.6; 
+    }
+    100% { 
+      transform: translateY(0%) scale(1.5);  
+      stroke-width:0.2;
+      opacity:0; 
+    }
+  }
+  @keyframes wave {
+    to {transform: translateX(-100%);}
+  }
+  @keyframes ball {
+    to {transform: translateY(20%);}
+  }
+  

@@ -5,24 +5,26 @@
 <article class="gh-article {{post_class}}">
 
     <header class="gh-header gh-canvas">
-        <span class="gh-post-meta"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span class="bull">&bull;</span> {{reading_time}}</span>
-        <h1 class="gh-title">{{title}}</h1>
-
-        {{#if custom_excerpt}}
-        <p class="gh-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
-
         {{#if feature_image}}
-        <img class="gh-feature-image"
-            srcset="{{img_url feature_image size="s"}} 300w,
+        <img class="gh-feature-image" srcset="{{img_url feature_image size="s"}} 300w,
                     {{img_url feature_image size="m"}} 600w,
                     {{img_url feature_image size="l"}} 1000w,
-                    {{img_url feature_image size="xl"}} 2000w"
-            sizes="(max-width: 1000px) 1000px, 2000px"
-            loading="lazy"
-            src="{{img_url feature_image size="xl"}}"
-            alt="{{title}}"
-        />
+                    {{img_url feature_image size="xl"}} 2000w" sizes="(max-width: 1000px) 1000px, 2000px"
+            loading="lazy" src="{{img_url feature_image size="xl"}}" alt="{{title}}" />
+        {{/if}}
+        <h1 class="gh-title">{{title}}</h1>
+        <span class="gh-post-meta">
+            <span class="gh-authors">
+                {{#foreach authors}}
+                <a class="gh-author-link" href="{{url}}" title="Visit {{name}}">{{name}}</a>
+                {{/foreach}}
+            </span>
+            <span class="bull">|</span>
+            <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
+            <span class="bull">|</span> {{reading_time}}
+        </span>
+        {{#if custom_excerpt}}
+        <p class="gh-excerpt">{{custom_excerpt}}</p>
         {{/if}}
     </header>
 
@@ -31,11 +33,19 @@
     </div>
 
     <footer class="gh-footer gh-canvas">
-
-        <div class="gh-post-authors">
-            Written by {{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}}
-        </div>
-
+        <section class="gh-share-post">
+            <h4 class="gh-share-title">Share It!</h4>
+            <div class="gh-share-social">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}" target="_blank"
+                    rel="noopener" aria-label="Facebook">
+                    <span class="social-icon">{{> "icons/facebook"}}</span>
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute='true'}}"
+                    target="_blank" rel="noopener" aria-label="Twitter">
+                    <span class="social-icon">{{> "icons/twitter"}}</span>
+                </a>
+            </div>
+        </section>
         {{!--
         <section class="gh-post-comments">
             If you want to embed comments, this is a good place to do it!
